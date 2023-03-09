@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "45b2faa1-f1b5-4fd5-b239-3733c78b669e",
+		"name": "Gestança",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23882586"
+	},
+	"item": [
+		{
+			"name": "Gestanca",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Cadatrar pizza",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "?nome=string&tamanho=enum&preco=big decimal &id=big decimal ",
+									"query": [
+										{
+											"key": "nome",
+											"value": "string",
+											"description": "descrição da pizza (ingredientes)"
+										},
+										{
+											"key": "tamanho",
+											"value": "enum",
+											"description": "tamanho da pizza (pequena, média e grande)"
+										},
+										{
+											"key": "preco",
+											"value": "big decimal ",
+											"description": "preço da pizza "
+										},
+										{
+											"key": "id",
+											"value": "big decimal ",
+											"description": "id da pizza"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Pedido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "```js \r\n{\r\n    nome: Pizza de Calabresa,\r\n    tamanho: 'médio',\r\n    preco: R$ 38.00\r\n}\r\n{\r\n    nome: Pizza de marguerita,\r\n    tamanho: 'grande',\r\n    preço: R$ 51.00,\r\n    entrega: 0, \r\n    observações: 'null'\r\n}\r\n```"
+								},
+								"url": {
+									"raw": "/gestanca/api/pedido?nome=string&tamanho=enum&preco=big decimal &entrega=boolean&observacoes=string",
+									"path": [
+										"gestanca",
+										"api",
+										"pedido"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "string",
+											"description": "descrição da pizza (ingredientes)"
+										},
+										{
+											"key": "tamanho",
+											"value": "enum",
+											"description": "tamanho da pizza (pequena, média e grande)"
+										},
+										{
+											"key": "preco",
+											"value": "big decimal ",
+											"description": "preço da pizza "
+										},
+										{
+											"key": "entrega",
+											"value": "boolean",
+											"description": "método de entrega (0 = retirada / 1 = entrega)"
+										},
+										{
+											"key": "observacoes",
+											"value": "string",
+											"description": "observações do cliente"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Informações do cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "```js \r\n{\r\n    nome: 'João',\r\n    endereço: 'rua das laranjeiras',\r\n    telefone: '(11)94356-2345'\r\n    id: '5'\r\n}\r\n```"
+								},
+								"url": {
+									"raw": "/gestanca/api/pedido?nome=string&endereco=string&telefone=big decimal ",
+									"path": [
+										"gestanca",
+										"api",
+										"pedido"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "string",
+											"description": "nome do cliente"
+										},
+										{
+											"key": "endereco",
+											"value": "string",
+											"description": "endereço do cliente"
+										},
+										{
+											"key": "telefone",
+											"value": "big decimal ",
+											"description": "telefone do cliente "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "Deletar Conta",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "deleteById = id"
+								},
+								"url": {
+									"raw": "/gestanca/api/conta",
+									"path": [
+										"gestanca",
+										"api",
+										"conta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Pizza{id}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "deleteById = id"
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "Atualizar Pizza",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\ntamanho: \"grande\"\r\n}"
+								},
+								"url": {
+									"raw": "url: \"/gestanca/api/pizza{id}\"",
+									"host": [
+										"url"
+									],
+									"port": " \"",
+									"path": [
+										"gestanca",
+										"api",
+										"pizza{id}\""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar Conta",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\nendereço: 'rua dos limoeiros'\r\n}\r\n"
+								},
+								"url": {
+									"raw": "\"/gestanca/api/conta{id}\"",
+									"host": [
+										"\""
+									],
+									"path": [
+										"gestanca",
+										"api",
+										"conta{id}\""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cupom",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    valor_desconto = (0.x * preço) - preço\r\n    valor_total = valor_desconto - preço\r\n}\r\n"
+								},
+								"url": {
+									"raw": "\"/gestanca/api/pizza{id}\"",
+									"host": [
+										"\""
+									],
+									"path": [
+										"gestanca",
+										"api",
+										"pizza{id}\""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Listar Pizza",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "```js \r\n{\r\n    nome: Pizza de Calabresa,\r\n    tamanho: 'médio',\r\n    preco: \"R$ 38.00\"\r\n}\r\n```\r\n"
+								},
+								"url": {
+									"raw": "/gestanca/api/pizza/{id}",
+									"path": [
+										"gestanca",
+										"api",
+										"pizza",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Conta",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "?nome=string&endereço=string&telefone=big decimal &id=big decimal ",
+									"query": [
+										{
+											"key": "nome",
+											"value": "string",
+											"description": "nome do cliente"
+										},
+										{
+											"key": "endereço",
+											"value": "string",
+											"description": "endereço do cliente"
+										},
+										{
+											"key": "telefone",
+											"value": "big decimal ",
+											"description": "telefone do cliente "
+										},
+										{
+											"key": "id",
+											"value": "big decimal ",
+											"description": "id do usuário"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
